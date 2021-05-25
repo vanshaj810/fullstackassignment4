@@ -1,25 +1,56 @@
-import logo from './logo.svg';
+import React, { Component } from "react";
+
+import Button from './components/Button'
 import './App.css';
+import Navbar from './components/navbar'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      count: 0
+    };
+  }
+  // this.reset = this.resetTotal.bind(this)
+  ResetCount = () => {
+    this.setState({
+      count:0,
+    });
+  };
+  incrementCount = () => {
+    this.setState({
+      count: this.state.count + 1
+    });
+  };
+
+  decrementCount = () => {
+    this.setState({
+      count: this.state.count - 1
+    });
+  };
+
+  render() {
+    let { count } = this.state;
+    return (
+  
+      <div className="app" >
+           <Navbar title="VANSHAJ BHARDWAJ"/>
+      <div className="counter">
+        <div>
+          <div className="count">
+            <h3>Count:</h3>
+            <h1>{count}</h1>
+          </div>
+          <div className="buttons">
+            <Button title={"-"} action={this.decrementCount} />
+            <Button title={"Reset"} action={this.ResetCount} />
+            <Button title={"+"} action={this.incrementCount} />
+          </div>
+        </div>
+      </div>
+      </div>
+      
+    );
+  }
 }
-
-export default App;
