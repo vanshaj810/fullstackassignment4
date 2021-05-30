@@ -9,7 +9,8 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      count: 0
+      count: 0,
+      name:""
     };
   }
   // this.reset = this.resetTotal.bind(this)
@@ -25,13 +26,15 @@ export default class App extends Component {
   };
 
   decrementCount = () => {
+    const n 
     this.setState({
       count: this.state.count - 1
     });
   };
 
   render() {
-    let { count } = this.state;
+    let { count,name } = this.state;
+    
     return (
   
       <div className="app" >
