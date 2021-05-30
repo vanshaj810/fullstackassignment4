@@ -26,14 +26,13 @@ export default class App extends Component {
   };
 
   decrementCount = () => {
-    const n 
     this.setState({
       count: this.state.count - 1
     });
   };
 
   render() {
-    let { count,name } = this.state;
+    let { count} = this.state;
     
     return (
   
